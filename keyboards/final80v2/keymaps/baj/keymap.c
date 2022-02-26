@@ -6,7 +6,7 @@ bool            is_alt_tab_active   = false;  // ALT_TAB 宏是否激活
 uint16_t        alt_tab_timer       = 0;      // ALT_TAB 计时器
 static uint32_t oled_timer          = 0;      // OLED 计时器
 bool            master_oled_cleared = false;  // OLED CLEAR 标记
-#define OLED_SHOW_STATE_TIMEOUT 20000         // 无操作10秒后激活OLED动画
+#define OLED_SHOW_STATE_TIMEOUT 20000         // 无操作20秒后激活OLED动画
 
 // [Keymaps] -----------------------------------------------------------------//
 enum layer_names { _BASE, _UPPER, _FN };

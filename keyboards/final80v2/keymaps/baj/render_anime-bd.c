@@ -4149,3 +4149,4 @@ if (timer_elapsed(anim_timer) > ANIM_FRAME_DURATION) {
     oled_write_raw_P(frame[abs((ANIM_NUM_FRAMES - 1) - current_anim_frame)], 1024);
 }
 }
+
