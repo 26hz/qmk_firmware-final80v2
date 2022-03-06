@@ -6,32 +6,32 @@ bool            is_alt_tab_active   = false;  // ALT_TAB 宏是否激活
 uint16_t        alt_tab_timer       = 0;      // ALT_TAB 计时器
 static uint32_t oled_timer          = 0;      // OLED 计时器
 bool            master_oled_cleared = false;  // OLED CLEAR 标记
-#define OLED_SHOW_STATE_TIMEOUT 20000         // 无操作20秒后激活OLED动画
+#define OLED_SHOW_STATE_TIMEOUT 15000         // 无操作15秒后激活OLED动画
 
 // [Keymaps] -----------------------------------------------------------------//
 enum layer_names { _BASE, _UPPER, _FN };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_BASE] = LAYOUT(KC_ESC, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_DEL, KC_MUTE,  //
+    [_BASE] = KEYMAP(KC_ESC, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_DEL, KC_MYCM,  //
                      KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_EQL, KC_BSPC,                    //
                      KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_LBRC, KC_RBRC, KC_BSLS,                   //
                      LT(2, KC_CAPS), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_ENT,                  //
                      KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT, KC_UP, KC_RIGHT,           //
                      KC_LCTL, KC_LGUI, KC_LALT, KC_SPC, KC_RALT, MO(2), KC_RCTL, KC_LEFT, KC_DOWN),                                   //
 
-    [_UPPER] = LAYOUT(KC_ESC, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_DEL, KC_MUTE,  //
+    [_UPPER] = KEYMAP(KC_ESC, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_DEL, KC_MYCM,  //
                       KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_EQL, KC_BSPC,                    //
                       KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_LBRC, KC_RBRC, KC_BSLS,                   //
                       KC_CAPS, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_ENT,                         //
                       KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT, KC_UP, KC_RIGHT,           //
                       KC_LCTL, KC_NO, KC_LALT, KC_SPC, KC_RALT, MO(2), KC_RCTL, KC_LEFT, KC_DOWN),                                     //
 
-    [_FN] = LAYOUT(RESET, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_PSCR, KC_TRNS,            //
-                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_KP_ASTERISK, KC_KP_SLASH, KC_TRNS, KC_CALCULATOR,  //
-                   KC_TRNS, KC_HOME, KC_UP, KC_END, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_7, KC_8, KC_9, KC_KP_MINUS, KC_TRNS, KC_MY_COMPUTER,                    //
-                   KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_4, KC_5, KC_6, KC_KP_PLUS, RGB_MOD,                                 //
-                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_1, KC_2, KC_3, KC_ASTG, KC_PGUP, KC_TRNS,                            //
-                   KC_TRNS, TG(1), KC_TRNS, RGB_TOG, KC_0, KC_TRNS, KC_TRNS, KC_TRNS, KC_PGDOWN),                                                                  //
+    [_FN] = KEYMAP(RESET, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_PSCR, KC_TRNS,        //
+                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_KP_ASTERISK, KC_KP_SLASH, KC_TRNS, KC_TRNS, KC_CALCULATOR,  //
+                   KC_TRNS, KC_HOME, KC_UP, KC_END, KC_TRNS, KC_TRNS, KC_TRNS, KC_7, KC_8, KC_9, KC_KP_MINUS, KC_TRNS, KC_TRNS, KC_MY_COMPUTER,                     //
+                   KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS, KC_TRNS, KC_TRNS, KC_4, KC_5, KC_6, KC_KP_PLUS, KC_TRNS, RGB_MOD,                           //
+                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_0, KC_1, KC_2, KC_3, KC_TRNS, KC_ASTG, KC_PGUP, KC_TRNS,                      //
+                   KC_TRNS, TG(1), KC_TRNS, RGB_TOG, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_PGDOWN),                                                            //
 };
 
 // {键盘预处理任务} -----------------------------------------------//
@@ -58,11 +58,25 @@ void matrix_scan_user(void) {
 }
 
 // {编码器功能} -----------------------------------------------//
-bool encoder_update_user(uint8_t index, bool clockwise) {
+void encoder_update_user(uint8_t index, bool clockwise) {
     switch (biton32(layer_state)) {  // 层检查
         // 1 = _UPPER:
         case 1:
-            clockwise ? tap_code(KC_MS_LEFT) : tap_code(KC_MS_RIGHT);
+            if (clockwise) {
+                if (!is_alt_tab_active) {
+                    is_alt_tab_active = true;
+                    register_code(KC_LALT);
+                }
+                alt_tab_timer = timer_read();
+                tap_code16(S(KC_TAB));
+            } else {
+                if (!is_alt_tab_active) {
+                    is_alt_tab_active = true;
+                    register_code(KC_LALT);
+                }
+                alt_tab_timer = timer_read();
+                tap_code16(KC_TAB);
+            }
             break;
 
         // 2 = _FN:
@@ -72,39 +86,31 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 
         // 0 or default = _BASE:
         default:
-            if (get_mods() & (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT))) {  // Modifier检查，此处检查LSHIFT是否按下
+            if (get_mods() & MOD_BIT(KC_LSHIFT)) {  // Modifier检查，此处检查LSHIFT是否按下
                 if (clockwise) {
-                    register_code(KC_VOLD);
+                    register_code(KC_PGDN);
                     wait_ms(10);
-                    unregister_code(KC_VOLD);
+                    unregister_code(KC_PGDN);
                 } else {
-                    register_code(KC_VOLU);
+                    register_code(KC_PGUP);
                     wait_ms(10);
-                    unregister_code(KC_VOLU);
+                    unregister_code(KC_PGUP);
                 }
             } else if (get_mods() & MOD_BIT(KC_LCTRL)) {
                 clockwise ? tap_code(KC_KP_MINUS) : tap_code(KC_KP_PLUS);
             } else {
-                // 编码器默认执行ALT_TAB宏：
                 if (clockwise) {
-                    if (!is_alt_tab_active) {
-                        is_alt_tab_active = true;
-                        register_code(KC_LALT);
-                    }
-                    alt_tab_timer = timer_read();
-                    tap_code16(S(KC_TAB));
-                } else {
-                    if (!is_alt_tab_active) {
-                        is_alt_tab_active = true;
-                        register_code(KC_LALT);
-                    }
-                    alt_tab_timer = timer_read();
-                    tap_code16(KC_TAB);
+                    register_code(KC_VOLD);
+                    wait_ms(10);
+                    unregister_code(KC_VOLD);
+                }   else {
+                    register_code(KC_VOLU);
+                    wait_ms(10);
+                    unregister_code(KC_VOLU);
                 }
             }
             break;
     }
-    return false;
 }
 
 // [OLED 设置] ---------------------------------------------//
@@ -129,15 +135,15 @@ static const char PROGMEM oled_footer[] = {0xc4, 0xc5, 0xc5, 0xc9, 0xca, 0xca, 0
 // Modifier 状态显示
 void render_mod_status(uint8_t modifiers) {
     oled_write_P(PSTR(" "), false);
-    oled_write_P(PSTR("-"), false);
+    oled_write_P(PSTR("="), false);
     oled_write_P(PSTR("SHF"), (modifiers & MOD_MASK_SHIFT));
-    oled_write_P(PSTR("-"), false);
+    oled_write_P(PSTR("="), false);
     oled_write_P(PSTR("CTR"), (modifiers & MOD_MASK_CTRL));
-    oled_write_P(PSTR("-"), false);
+    oled_write_P(PSTR("="), false);
     oled_write_P(PSTR("WIN"), (modifiers & MOD_MASK_GUI));
-    oled_write_P(PSTR("-"), false);
+    oled_write_P(PSTR("="), false);
     oled_write_P(PSTR("ALT"), (modifiers & MOD_MASK_ALT));
-    oled_write_P(PSTR("-"), false);
+    oled_write_P(PSTR("="), false);
     oled_write_P(PSTR(" "), false);
 }
 
@@ -145,13 +151,13 @@ void render_mod_status(uint8_t modifiers) {
 void render_layer_state(void) {
     switch (get_highest_layer(layer_state)) {
         case 0:
-            oled_write_P(PSTR(" MAIN   "), false);
+            oled_write_P(PSTR(" Jaus   "), false);
             break;
         case 1:
-            oled_write_P(PSTR(" GAME   "), false);
+            oled_write_P(PSTR(" Game   "), false);
             break;
         case 2:
-            oled_write_P(PSTR("FUNCTION"), false);
+            oled_write_P(PSTR(" Func   "), false);
             break;
         default:
             oled_write_P(PSTR("Undefined"), false);
@@ -228,7 +234,7 @@ void render_keylogger_status(void) { oled_write(keylog_str, false); }
 // {OLED 主进程} ------------------------------------------------------//
 void oled_task_user(void) {
     if (timer_elapsed32(oled_timer) > OLED_SHOW_STATE_TIMEOUT && timer_elapsed32(oled_timer) < OLED_TIMEOUT) {
-        // 无操作10秒后，OLED_TIMEOUT(60秒默认)前播放动画
+        // 无操作10秒后，OLED_TIMEOUT(1800秒默认)前播放动画
         if (!master_oled_cleared) {
             // Clear OLED一次确保动画正确渲染
             oled_clear();
@@ -237,7 +243,7 @@ void oled_task_user(void) {
         render_anime();
         return;
     } else if (timer_elapsed32(oled_timer) > OLED_TIMEOUT) {
-        // 无操作60秒后关闭OLED
+        // 无操作1800秒后关闭OLED
         oled_off();
         return;
     } else {

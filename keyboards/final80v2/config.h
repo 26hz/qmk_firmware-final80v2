@@ -8,7 +8,7 @@
 #define PRODUCT_ID 0x6060
 #define DEVICE_VER 0x0002
 #define MANUFACTURER Neilzx - Design
-#define PRODUCT Final80 % v2
+#define PRODUCT 北傲诀武林之巅
 #define DESCRIPTION STM32 based 80% keyboard with full rgb, oled and encoder.
 
 /* key matrix set */
@@ -44,7 +44,7 @@
 #    define ENCODERS_PAD_A { B4 }
 #    define ENCODERS_PAD_B { B5 }
 #    define ENCODER_RESOLUTION 4
-//#    define ENCODER_DIRECTION_FLIP  // 如果旋钮反向，启用此处
+#    define ENCODER_DIRECTION_FLIP  // 如果旋钮反向，启用此处
 #endif
 
 /* MOUSEKEY */
@@ -68,7 +68,7 @@
 #    define I2C1_TIMINGR_SDADEL 0U
 #    define I2C1_TIMINGR_SCLH 38U
 #    define I2C1_TIMINGR_SCLL 129U
-#    define OLED_TIMEOUT 60000  // 60秒无操作关闭OLED
+#    define OLED_TIMEOUT 300000  // 60秒无操作关闭OLED
 #    define OLED_FONT_HEIGHT 8
 #    define OLED_FONT_WIDTH 6
 #    define OLED_FONT_H "neil_font.c"

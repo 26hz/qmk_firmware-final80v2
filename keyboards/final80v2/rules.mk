@@ -6,9 +6,9 @@ MCU = STM32F303
 #
 ENCODER_ENABLE = yes
 BOOTMAGIC_ENABLE = lite      # Virtual DIP switch configuration
-MOUSEKEY_ENABLE = yes        # Mouse keys
+MOUSEKEY_ENABLE = no        # Mouse keys
 EXTRAKEY_ENABLE = yes        # Audio control and System control
-CONSOLE_ENABLE = no        # Console for debug
+CONSOLE_ENABLE = no        # Console for debug 调试开关
 COMMAND_ENABLE = no        # Commands for debug and configuration
 # Do not enable SLEEP_LED_ENABLE. it uses the same timer as BACKLIGHT_ENABLE
 SLEEP_LED_ENABLE = no        # Breathing sleep LED during USB suspend
@@ -21,6 +21,6 @@ WS2812_DRIVER = pwm
 WPM_ENABLE = yes		 # Show APM.
 OLED_DRIVER_ENABLE = yes
 AUTO_SHIFT_ENABLE = yes
-VELOCIKEY_ENABLE = yes
+VELOCIKEY_ENABLE = yes  # RGB灯效速度随输入速度变化
 
 DFU_ARGS = -d 0483:df11 -a 0 -s 0x08000000:leave
