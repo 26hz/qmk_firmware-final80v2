@@ -68,7 +68,7 @@
 #    define I2C1_TIMINGR_SDADEL 0U
 #    define I2C1_TIMINGR_SCLH 38U
 #    define I2C1_TIMINGR_SCLL 129U
-#    define OLED_TIMEOUT 300000  // 60秒无操作关闭OLED
+#    define OLED_TIMEOUT 45000  // 60秒无操作关闭OLED
 #    define OLED_FONT_HEIGHT 8
 #    define OLED_FONT_WIDTH 6
 #    define OLED_FONT_H "neil_font.c"

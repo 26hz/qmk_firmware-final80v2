@@ -1,4 +1,4 @@
-#define QMK_VERSION "15a5d3-dirty"
-#define QMK_BUILDDATE "2022-03-06-07:52:24"
-#define CHIBIOS_VERSION "15a5d3-dirty"
-#define CHIBIOS_CONTRIB_VERSION "15a5d3-dirty"
+#define QMK_VERSION "0022c5-dirty"
+#define QMK_BUILDDATE "2022-05-13-14:35:43"
+#define CHIBIOS_VERSION "0022c5-dirty"
+#define CHIBIOS_CONTRIB_VERSION "0022c5-dirty"
