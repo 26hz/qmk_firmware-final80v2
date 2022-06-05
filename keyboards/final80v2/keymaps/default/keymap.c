@@ -27,11 +27,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       KC_LCTL, KC_NO, KC_LALT, KC_SPC, KC_RALT, MO(2), KC_RCTL, KC_LEFT, KC_DOWN),                                     //
 
     [_FN] = KEYMAP(RESET, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_PSCR, KC_TRNS,        //
-                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_KP_ASTERISK, KC_KP_SLASH, KC_TRNS, KC_TRNS, KC_CALCULATOR,  //
-                   KC_TRNS, KC_HOME, KC_UP, KC_END, KC_TRNS, KC_TRNS, KC_TRNS, KC_7, KC_8, KC_9, KC_KP_MINUS, KC_TRNS, KC_TRNS, KC_MY_COMPUTER,                     //
+                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_KP_ASTERISK, KC_KP_SLASH, KC_TRNS, KC_TRNS, KC_PAUSE,  //
+                   KC_TRNS, KC_HOME, KC_UP, KC_END, KC_TRNS, KC_TRNS, KC_TRNS, KC_7, KC_8, KC_9, KC_KP_MINUS, KC_TRNS, KC_TRNS, KC_INS,                     //
                    KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS, KC_TRNS, KC_TRNS, KC_4, KC_5, KC_6, KC_KP_PLUS, KC_TRNS, RGB_MOD,                           //
-                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_0, KC_1, KC_2, KC_3, KC_TRNS, KC_ASTG, KC_PGUP, KC_TRNS,                      //
-                   KC_TRNS, TG(1), KC_TRNS, RGB_TOG, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_PGDOWN),                                                            //
+                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_0, KC_1, KC_2, KC_3, KC_KP_EQUAL, KC_ASTG, KC_PGUP, KC_END,                      //
+                   KC_TRNS, TG(1), KC_TRNS, RGB_TOG, KC_TRNS, KC_TRNS, KC_TRNS, KC_HOME, KC_PGDN),                                                            //
 };
 
 // {键盘预处理任务} -----------------------------------------------//
